@@ -7,7 +7,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Step 2: Runtime stage
-FROM eclipse-temurin:21-jre
+FROM eclipse-temurin:25-jre
 WORKDIR /app
 # Wildcard prevents failure if the version in pom.xml changes
 COPY --from=build /smartcontactmanager/target/*.jar app.jar
